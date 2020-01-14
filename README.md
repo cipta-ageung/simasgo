@@ -16,11 +16,15 @@ simas repository go microservices
 
 ### clone repository
 
+create folder on gopath : `mkdir $GOPATH/simas`
+
+`cd $GOPATH/simas`
+
 `git clone http://github.com/cipta-ageung/simasgo`
 
 ### run module vendor
 
-`go mod init github.com/cipta-ageung/simasgo`
+optional if go mod not exist : `go mod init github.com/cipta-ageung/simasgo`
 
 `go mod vendor`
 
