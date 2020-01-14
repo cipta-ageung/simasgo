@@ -6,7 +6,7 @@ simas repository go microservices
 
 `go get -v go.etcd.io/etcd/etcdctl`
 
-### run plugin :
+### run plugin
 
 `etcd`
 

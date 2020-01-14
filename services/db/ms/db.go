@@ -3,6 +3,7 @@ package ms
 import (
 	"context"
 	"log"
+	"os"
 
 	"github.com/cipta-ageung/simasgo/protobuf/db"
 	"github.com/micro/go-micro/config"
@@ -18,7 +19,7 @@ func (g *ConnectionService) SetupDb(ctx context.Context, req *db.ServiceApp, rsp
 	//rsp = &db.ServiceDb{}
 
 	// load data from file configuration
-	config.LoadFile("./config/db.json")
+	config.LoadFile(os.Getenv("HOME") + "/go/src/simas/simasgo/config/db.json")
 
 	// set data configuration into type struct ServiceDb
 	config.Get("services", req.Svc).Scan(&rsp)
