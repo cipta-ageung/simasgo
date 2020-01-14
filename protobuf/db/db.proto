@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package db;
+
+message ServiceApp{
+    string svc = 1;
+}
+
+message ServiceDb{
+    string host = 1;
+    string port = 2;
+    string user = 3;
+    string password = 4;
+    string dbname = 5;
+    ServiceApp svc = 6;
+    string connectionDb = 7;
+}
+
+service ConnectionService{
+    rpc SetupDb(ServiceApp) returns (ServiceDb){};
+}

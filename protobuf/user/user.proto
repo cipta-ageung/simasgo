@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+    rpc Create(User) returns (Response) {}
+    rpc Get(User) returns (Response) {}
+    rpc GetAll(Request) returns (Response) {}
+    rpc Auth(User) returns (Token) {}
+    rpc ValidateToken(Token) returns (Token) {}
+}
+
+enum UserRole {
+    ROLE_SUPER_ADMIN = 0;
+    ROLE_ADMIN = 1;
+    ROLE_GURU = 2;
+    ROLE_ORANG_TUA = 3;
+}
+
+message User {
+    string id = 1;
+    string name = 2;
+    string sekolah_id = 3;
+    string email = 4;
+    string password = 5;
+    UserRole user_role = 7;
+    string token = 8;
+}
+
+message Request {}
+
+message Response {
+    User user = 1;
+    repeated User users = 2;
+    repeated Error errors = 3;
+    Token token = 4;
+}
+
+message Token {
+    string token = 1;
+    bool valid = 2;
+    repeated Error errors = 3;
+}
+
+message Error {
+    int32 code = 1;
+    string description = 2;
+}
