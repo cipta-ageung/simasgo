@@ -11,13 +11,13 @@ import (
 
 	"github.com/micro/go-micro"
 	"github.com/micro/go-micro/registry"
-	"github.com/micro/go-plugins/registry/etcdv3"
+	"github.com/micro/go-plugins/registry/eureka"
 )
 
 func main() {
 
-	reg := etcdv3.NewRegistry(func(op *registry.Options) {
-		op.Addrs = []string{"http://127.0.0.1:2379"}
+	reg := eureka.NewRegistry(func(op *registry.Options) {
+		op.Addrs = []string{"http://admin:Metal7390@localhost:8761/eureka"}
 	})
 	// Initiate Service
 	service := micro.NewService(
